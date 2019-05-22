@@ -32,3 +32,9 @@ yarn-error.log
 
 # User specific bazel settings
 .bazelrc.user
+
+
+# User defined
+.idea/
+.archive/
+.npm-global/

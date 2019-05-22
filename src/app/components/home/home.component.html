@@ -1,0 +1,267 @@
+<div id="top-navbar" class="w3-top w3-right-align w3-hide-small">
+  <img id="header-logo" src="assets/images/logo-full.min.png" class="w3-left" (click)="redirectTo('/')" />
+  <button mat-button color="primary" class="w3-padding w3-large" (click)="scrollTo('#about-me')">
+    <fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;
+    <span>About Me</span>
+  </button>
+  <button mat-button color="primary" class="w3-padding w3-large" (click)="scrollTo('#my-work')">
+    <fa-icon [icon]="['fas', 'briefcase']"></fa-icon>&nbsp;
+    <span>My Work</span>
+  </button>
+  <a mat-button color="primary" class="w3-padding w3-large" target="_blank"
+    href="assets/docs/Resume - Sushant Kumar.pdf">
+    <fa-icon [icon]="['fas', 'address-card']"></fa-icon>
+  </a>
+</div>
+
+<div id="about-me-parallax" class="bgimg-1 w3-opacity w3-display-container">
+  <div class="w3-display-middle" style="white-space: nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+      SUSHANT&nbsp;&nbsp;KUMAR
+    </span>
+  </div>
+</div>
+
+<div id="about-me" class="w3-white">
+  <div class="w3-content w3-padding-16 w3-padding">
+    <h3 class="w3-center w3-text-theme-primary">ABOUT ME</h3>
+    <div class="w3-row">
+      <div class="w3-col m3 w3-center w3-section">
+        <img id="profile-img" src="assets/images/logo-square.png" class="w3-circle" alt="S">
+      </div>
+      <div class="w3-col m9 w3-section">
+        <div style="text-align:justify;">
+          <p>
+            <b>Name</b> Sushant Kumar
+          </p>
+          <p>
+            <b>Qualification</b> B.E. in Computer Science and Engineering
+          </p>
+          <div class="w3-row">
+            <div class="w3-col l6">
+              <fa-icon [icon]="['fas', 'map-marker-alt']" class="w3-text-grey"></fa-icon>&nbsp;
+              <button mat-button disabled color="accent" class="w3-text-theme-accent">Bengaluru, India</button>
+            </div>
+            <div class="w3-col l6">
+              <fa-icon [icon]="['fas', 'mobile-alt']" class="w3-text-grey"></fa-icon>&nbsp;
+              <a mat-button color="accent" href="tel:+919740895495">+91 97408 95495</a>
+            </div>
+            <div class="w3-col l6">
+              <fa-icon [icon]="['fas', 'envelope']" class="w3-text-grey"></fa-icon>&nbsp;
+              <a mat-button color="accent" href="mailto:sushant.kum96@gmail.com">sushant.kum96@gmail.com</a>
+            </div>
+            <div class="w3-col l6">
+              <fa-icon [icon]="['fab', 'github']" class="w3-text-grey"></fa-icon>&nbsp;
+              <a mat-button color="accent" target="_blank"
+                href="https://github.com/sushant-kum">github.com/sushant-kum</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="w3-text-theme-primary">Education</h3>
+    </div>
+    <div *ngFor="let item of educations; let i=index" class="w3-row w3-margin-top">
+      <div class="w3-col s3 w3-padding-right-8">
+        <fa-icon [icon]="['fas', 'calendar']" class="w3-text-grey"></fa-icon>
+        {{item.duration.from}} - {{item.duration.to}}<br />
+        <fa-icon [icon]="['fas', 'university']" class="w3-text-grey"></fa-icon>
+        {{item.board}}
+      </div>
+      <div class="w3-col s9">
+        <b>{{item.title}}</b>
+        <div class="w3-right w3-text-gray w3-small">
+          {{item.score}}
+          <fa-icon [icon]="['fas', 'scroll']"></fa-icon>
+        </div>
+        <br />
+        {{item.description}}
+      </div>
+    </div>
+
+    <div class="w3-margin-top">
+      <h3 class="w3-text-theme-primary">Experience</h3>
+    </div>
+    <div *ngFor="let item of experiences" class="w3-row w3-margin-top">
+      <div class="w3-col s3 w3-padding-right-8">
+        <fa-icon [icon]="['fas', 'calendar']" class="w3-text-grey"></fa-icon>
+        {{item.duration.from}} - {{item.duration.to}}<br />
+        <fa-icon [icon]="['fas', 'map-marker-alt']" class="w3-text-grey"></fa-icon>
+        {{item.company}}
+      </div>
+      <div class="w3-col s9">
+        <b>{{item.title}}</b><br />
+        {{item.description}}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="w3-dark-gray">
+  <div class="w3-content w3-padding-16 w3-padding">
+    <h3 class="w3-center">SKILLSETS AND EXPERIENCE</h3>
+    <div *ngFor="let item of skillsets; let i=index">
+      <div class="w3-padding" style="padding-left: 0!important; padding-right: 0!important;">
+        <img [src]="item.icon_path" style="height: 25px;" />&nbsp;
+        {{item.title}}
+        <span class="w3-right w3-hide-large">Experienced {{item.experience.years}} year(s), {{item.experience.months}} month(s)</span>
+      </div>
+      <div class="w3-row">
+        <div class="rating w3-col l8">
+          <div class="w3-white w3-round-xlarge">
+            <div class="rating-bar w3-container w3-round-xlarge w3-theme-accent" [style.width.%]="item.rating/10*100">
+              <span class="rating-star w3-hide-large">
+                  {{item.rating}}/10
+              </span>
+              <span *ngFor="let i of createRange(10)" class="rating-star w3-hide-small w3-hide-medium w3-padding-left-4">
+                <fa-icon [icon]="['fas', 'star']" *ngIf="item.rating > i"></fa-icon>
+                <fa-icon [icon]="['far', 'star']" *ngIf="i >= item.rating"></fa-icon>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="w3-col l4 w3-hide-small w3-hide-medium" style="text-align: right;">
+          Experienced {{item.experience.years}} year(s), {{item.experience.months}} month(s)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="my-work-parallax" class="bgimg-2 w3-opacity w3-display-container">
+  <div class="w3-display-middle" style="white-space: nowrap;">
+    <span class="w3-center w3-padding-large w3-theme-primary w3-xlarge w3-wide w3-animate-opacity">
+      MY&nbsp;&nbsp;WORK
+    </span>
+  </div>
+</div>
+
+<div id="my-work" class="w3-content">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis augue et mi cursus consectetur. Vestibulum et
+  interdum leo. Fusce a sollicitudin ipsum. Aliquam interdum, velit quis facilisis consequat, magna purus convallis
+  ligula, eget volutpat sem ex sed ex. Sed viverra massa non velit porttitor, id iaculis leo dapibus. Morbi ultricies
+  rutrum lorem quis pulvinar. Fusce aliquet ut risus eget gravida.
+
+  Donec mattis, est sit amet elementum dictum, lacus augue vehicula tortor, at ornare lectus eros et nisi. Nulla posuere
+  leo eu leo pulvinar varius. Vestibulum et tortor vel tortor interdum ornare ultrices non turpis. Maecenas a ligula
+  vitae
+  sapien consequat venenatis in vel magna. In malesuada ipsum eleifend enim viverra sagittis. Nullam viverra elit
+  lectus,
+  at tincidunt arcu tempus in. Praesent non commodo lorem, nec ullamcorper enim. Vestibulum ante ipsum primis in
+  faucibus
+  orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Aliquam id metus tempus, bibendum lectus a,
+  ultricies odio. Donec gravida nulla vel dolor feugiat congue.
+
+  Morbi vulputate ipsum vel consectetur tincidunt. Nullam quis mi et magna consectetur finibus quis sit amet libero.
+  Proin
+  aliquet dolor massa, in semper purus mollis ut. Aenean interdum auctor vehicula. Donec sagittis lorem hendrerit ornare
+  bibendum. Sed ex risus, rhoncus a porttitor eget, rutrum et quam. Integer a varius lorem. Aenean auctor turpis vel
+  mauris mollis aliquam. Sed ut iaculis diam. Donec eleifend lacus at lacinia ultrices. Nunc sed purus eget urna commodo
+  porta.
+
+  Integer malesuada odio ac diam cursus imperdiet. Donec ac felis malesuada orci maximus auctor. Ut sed lectus eget
+  metus
+  feugiat interdum sed et sem. Morbi auctor, lectus vitae ullamcorper aliquet, eros dui venenatis lacus, maximus
+  vehicula
+  felis lacus volutpat lectus. Duis blandit hendrerit sem quis tempor. Curabitur et dignissim nisi, viverra suscipit
+  leo.
+  Vivamus auctor pretium blandit. In nec nibh eros. Vivamus vel egestas mauris.
+
+  Etiam in iaculis magna. Maecenas ut urna nec metus consequat faucibus. In et lacinia risus. Fusce eu arcu fermentum,
+  porta diam eget, sodales sem. Fusce fermentum faucibus ornare. Donec et dui elit. Donec ut ipsum quis erat finibus
+  vulputate. Aliquam et tortor eu odio cursus ultricies a eget magna. Proin id erat at arcu ultrices euismod. Donec
+  lobortis dui id imperdiet molestie. Maecenas hendrerit in nunc a efficitur. Quisque lobortis arcu tortor, vel cursus
+  ligula aliquet sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+  Pellentesque commodo tellus non velit lobortis elementum. Maecenas pretium lacus dolor, sollicitudin suscipit justo
+  vestibulum id. Duis posuere, leo non mattis congue, felis eros tempus risus, eget porta purus risus sed diam.
+
+  Aenean et risus vitae augue iaculis sollicitudin vitae eu ipsum. Orci varius natoque penatibus et magnis dis
+  parturient
+  montes, nascetur ridiculus mus. In hac habitasse platea dictumst. Integer feugiat, lorem tincidunt egestas tempus, mi
+  tellus cursus libero, sit amet fermentum eros erat aliquet sem. Aliquam ultrices auctor augue id volutpat. Sed neque
+  nunc, hendrerit non lorem quis, molestie pellentesque risus. Aliquam ornare pulvinar mauris, id viverra augue. In eu
+  dui
+  odio. Ut aliquet nisl nibh, porta molestie libero sagittis hendrerit. Sed porttitor, augue nec molestie malesuada,
+  justo
+  tellus iaculis libero, nec suscipit nunc nunc ac quam. Aliquam sit amet finibus sapien.
+
+  Nunc eget mi nec dolor laoreet sagittis. Maecenas efficitur semper lorem ac lobortis. Morbi lectus metus, cursus sit
+  amet elit at, luctus dapibus libero. Donec vehicula sodales imperdiet. Aenean interdum aliquet mollis. Ut sit amet
+  quam
+  odio. Mauris faucibus, sapien nec dignissim consequat, urna metus porta eros, vitae tristique massa turpis in lorem.
+  Nulla magna elit, fringilla ac nibh vitae, volutpat pharetra urna. Morbi in nunc lacus. Maecenas justo lorem, dapibus
+  eget pellentesque ut, maximus eget leo. Vivamus id condimentum metus. Maecenas vel rhoncus nisl. Integer non sem ac
+  neque feugiat accumsan. Suspendisse tristique dictum neque. Morbi vel felis eu est tincidunt placerat.
+
+  Cras id nisl eget ligula congue molestie. Vestibulum et ipsum tortor. Donec vel tincidunt diam. Pellentesque habitant
+  morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas quis neque vitae ipsum volutpat
+  consequat ornare quis leo. Ut arcu ex, egestas ac sollicitudin id, vehicula in justo. Sed ut leo ornare, iaculis felis
+  pharetra, condimentum turpis. Praesent rhoncus scelerisque scelerisque. Vestibulum condimentum velit sit amet dui
+  semper, quis fermentum tellus fermentum. Maecenas ultricies in eros vel blandit. Morbi ex mauris, pulvinar ut elit et,
+  pellentesque maximus magna.
+
+  Curabitur et dolor ac felis egestas imperdiet. Nullam scelerisque dolor est, nec auctor ex convallis eu. Praesent
+  interdum felis sed dignissim aliquet. Donec quis commodo velit. Integer quis erat porttitor quam cursus vestibulum.
+  Phasellus nec iaculis nibh, eu accumsan ligula. Praesent imperdiet dui ex, tincidunt tincidunt justo dapibus a. Donec
+  quam sem, finibus quis velit sed, iaculis tincidunt turpis. Morbi nec auctor est. Quisque porttitor iaculis iaculis.
+  Curabitur odio leo, finibus at sem id, pretium volutpat velit. Mauris a iaculis lectus. Duis hendrerit sapien ac neque
+  dictum, nec convallis justo cursus. Nunc auctor vitae dui quis scelerisque. Duis imperdiet ante velit, ac finibus
+  neque
+  ultricies a. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+
+  Nunc at lectus sem. Sed bibendum eros et condimentum tristique. Curabitur finibus consectetur pulvinar. Quisque
+  sagittis
+  commodo scelerisque. In eu dapibus orci. Mauris mollis ut massa eu ullamcorper. Praesent placerat enim quis sapien
+  pulvinar, ornare sagittis ligula pulvinar. Praesent luctus in mauris sit amet vestibulum.
+
+  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris laoreet est a
+  urna
+  gravida, eget eleifend dui gravida. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+  himenaeos. Nam ut vehicula erat, eu molestie urna. Praesent suscipit efficitur turpis, nec bibendum tellus volutpat
+  et.
+  Nullam quis enim ut ligula elementum rhoncus vitae vitae urna. Quisque a purus lacus. Ut a purus sagittis, tristique
+  nunc eget, facilisis purus. Proin magna ipsum, tristique sed gravida et, ullamcorper id nunc. Vestibulum et urna
+  consequat, gravida lorem vel, imperdiet risus. Aliquam erat volutpat.
+
+  Aliquam fringilla pharetra ligula ut vehicula. Fusce sit amet augue vel ex imperdiet rutrum. Sed et nibh vitae purus
+  interdum tincidunt. Pellentesque id enim eleifend, condimentum enim id, faucibus purus. Nam feugiat risus id tristique
+  fermentum. Aliquam ullamcorper accumsan odio quis tincidunt. Sed tempor mollis volutpat. Donec auctor molestie lorem,
+  in
+  vestibulum nulla ultricies sed. Vestibulum eu libero scelerisque, imperdiet lectus a, elementum dolor. Etiam sit amet
+  lobortis dui. Duis eget dolor auctor, mollis tellus a, varius metus. Curabitur id elementum nunc. Nullam hendrerit
+  neque
+  ac mauris porttitor consectetur. Etiam elementum auctor est facilisis pulvinar. Mauris ac rutrum nisi.
+
+  Phasellus quis tellus ac nunc faucibus vestibulum posuere vitae velit. Praesent et pretium augue. Donec cursus
+  vehicula
+  massa vitae sagittis. Nunc imperdiet risus nec velit ullamcorper, sit amet pellentesque orci scelerisque. Mauris
+  tempus
+  tortor odio, at cursus turpis vestibulum a. Pellentesque et ullamcorper augue, non aliquet felis. Quisque auctor eget
+  dolor et auctor. Cras sit amet lectus hendrerit, blandit magna ac, scelerisque mi. Nullam ornare nisl eu cursus
+  ultricies. Etiam nisi velit, convallis id euismod in, aliquam vel ante. Ut dignissim diam at dolor sagittis, nec
+  vulputate nunc mattis. Nulla feugiat ultrices velit a sollicitudin. Vestibulum vehicula suscipit turpis id convallis.
+  Curabitur at neque auctor, ultrices tortor in, vestibulum justo.
+
+  Pellentesque dapibus eu arcu id fringilla. Curabitur luctus, eros nec molestie euismod, justo erat placerat elit, a
+  auctor nulla ipsum id felis. Nunc eu tellus et nisl sagittis efficitur in et nunc. Duis auctor sagittis lacus auctor
+  mollis. Quisque finibus, dolor ac varius tincidunt, nibh erat pulvinar elit, at bibendum risus erat nec purus. Sed
+  vestibulum ipsum nec nisi elementum viverra. Donec sagittis, ex quis rutrum eleifend, arcu enim vehicula enim, a
+  rhoncus
+  sem neque non nisl. Sed vitae odio velit. Aenean porttitor consequat arcu non tempor. Vivamus et dapibus quam.
+
+  Nulla consectetur massa felis, ut posuere felis dapibus feugiat. Ut vestibulum ante vel nibh sollicitudin vulputate.
+  Aliquam finibus interdum sem at molestie. Nunc sed lobortis lorem. Nunc nulla diam, vulputate id orci sit amet,
+  dapibus
+  posuere augue. Proin ornare nibh vel quam imperdiet laoreet. Vestibulum ut nisl hendrerit, facilisis lorem eu,
+  fringilla
+  urna. Maecenas commodo porttitor convallis. Vivamus gravida, nisl id cursus dictum, lorem augue commodo arcu, ac
+  semper
+  tortor nunc nec orci. Suspendisse vestibulum cursus mollis. Nunc at ligula sit amet nisl mattis consequat a vitae
+  nibh.
+  Integer in lacus sit amet tortor auctor placerat ac semper tellus. Vestibulum nec tristique metus, vitae accumsan
+  nunc.
+  Sed ac nisi sapien.
+</div>
