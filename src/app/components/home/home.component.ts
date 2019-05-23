@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-
 import * as moment from 'moment';
 
 interface Education {
