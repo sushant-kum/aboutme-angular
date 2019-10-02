@@ -1,22 +1,44 @@
 <div id="top-navbar" class="w3-top w3-right-align w3-hide-small">
-  <img id="header-logo" src="assets/images/logo-full.min.png" class="w3-left" (click)="redirectTo('/')" />
-  <button mat-button color="primary" class="w3-padding w3-large" (click)="scrollTo('#about-me')">
+  <img
+    id="header-logo"
+    src="assets/images/logo-full.min.png"
+    class="w3-left"
+    (click)="redirectTo('/')"
+  />
+  <button
+    mat-button
+    color="primary"
+    class="w3-padding w3-large"
+    (click)="scrollTo('#about-me')"
+  >
     <fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;
     <span>About Me</span>
   </button>
-  <button mat-button color="primary" class="w3-padding w3-large" (click)="scrollTo('#my-work')">
+  <button
+    mat-button
+    color="primary"
+    class="w3-padding w3-large"
+    (click)="scrollTo('#my-work')"
+  >
     <fa-icon [icon]="['fas', 'briefcase']"></fa-icon>&nbsp;
     <span>My Work</span>
   </button>
-  <a mat-button color="primary" class="w3-padding w3-large" target="_blank"
-    href="assets/docs/Resume - Sushant Kumar.pdf">
+  <a
+    mat-button
+    color="primary"
+    class="w3-padding w3-large"
+    target="_blank"
+    href="assets/docs/Resume - Sushant Kumar.pdf"
+  >
     <fa-icon [icon]="['fas', 'address-card']"></fa-icon>
   </a>
 </div>
 
 <div id="about-me-parallax" class="bgimg-1 w3-opacity w3-display-container">
   <div class="w3-display-middle" style="white-space: nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+    <span
+      class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"
+    >
       SUSHANT&nbsp;&nbsp;KUMAR
     </span>
   </div>
@@ -27,33 +49,63 @@
     <h3 class="w3-center w3-text-theme-primary">ABOUT ME</h3>
     <div class="w3-row">
       <div class="w3-col m3 w3-center w3-section">
-        <img id="profile-img" src="assets/images/logo-square.png" class="w3-circle" alt="S">
+        <img
+          id="profile-img"
+          src="assets/images/logo-square.png"
+          class="w3-circle"
+          alt="S"
+        />
       </div>
       <div class="w3-col m9 w3-section">
         <div style="text-align:justify;">
-          <p>
-            <b>Name</b> Sushant Kumar
-          </p>
-          <p>
-            <b>Qualification</b> B.E. in Computer Science and Engineering
-          </p>
+          <p><b>Name</b> Sushant Kumar</p>
+          <p><b>Qualification</b> B.E. in Computer Science and Engineering</p>
           <div class="w3-row">
             <div class="w3-col l6">
-              <fa-icon [icon]="['fas', 'map-marker-alt']" class="w3-text-grey"></fa-icon>&nbsp;
-              <button mat-button disabled color="accent" class="w3-text-theme-accent">Bengaluru, India</button>
+              <fa-icon
+                [icon]="['fas', 'map-marker-alt']"
+                class="w3-text-grey"
+              ></fa-icon
+              >&nbsp;
+              <button
+                mat-button
+                disabled
+                color="accent"
+                class="w3-text-theme-accent"
+              >
+                Bengaluru, India
+              </button>
             </div>
             <div class="w3-col l6">
-              <fa-icon [icon]="['fas', 'mobile-alt']" class="w3-text-grey"></fa-icon>&nbsp;
-              <a mat-button color="accent" href="tel:+919740895495">+91 97408 95495</a>
+              <fa-icon
+                [icon]="['fas', 'mobile-alt']"
+                class="w3-text-grey"
+              ></fa-icon
+              >&nbsp;
+              <a mat-button color="accent" href="tel:+919740895495"
+                >+91 97408 95495</a
+              >
             </div>
             <div class="w3-col l6">
-              <fa-icon [icon]="['fas', 'envelope']" class="w3-text-grey"></fa-icon>&nbsp;
-              <a mat-button color="accent" href="mailto:sushant.kum96@gmail.com">sushant.kum96@gmail.com</a>
+              <fa-icon
+                [icon]="['fas', 'envelope']"
+                class="w3-text-grey"
+              ></fa-icon
+              >&nbsp;
+              <a mat-button color="accent" href="mailto:sushant.kum96@gmail.com"
+                >sushant.kum96@gmail.com</a
+              >
             </div>
             <div class="w3-col l6">
-              <fa-icon [icon]="['fab', 'github']" class="w3-text-grey"></fa-icon>&nbsp;
-              <a mat-button color="accent" target="_blank"
-                href="https://github.com/sushant-kum">github.com/sushant-kum</a>
+              <fa-icon [icon]="['fab', 'github']" class="w3-text-grey"></fa-icon
+              >&nbsp;
+              <a
+                mat-button
+                color="accent"
+                target="_blank"
+                href="https://github.com/sushant-kum"
+                >github.com/sushant-kum</a
+              >
             </div>
           </div>
         </div>
@@ -63,21 +115,24 @@
     <div>
       <h3 class="w3-text-theme-primary">Education</h3>
     </div>
-    <div *ngFor="let item of educations; let i=index" class="w3-row w3-margin-top">
+    <div
+      *ngFor="let item of educations; let i = index"
+      class="w3-row w3-margin-top"
+    >
       <div class="w3-col s3 w3-padding-right-8">
         <fa-icon [icon]="['fas', 'calendar']" class="w3-text-grey"></fa-icon>
-        {{item.duration.from}} - {{item.duration.to}}<br />
+        {{ item.duration.from }} - {{ item.duration.to }}<br />
         <fa-icon [icon]="['fas', 'university']" class="w3-text-grey"></fa-icon>
-        {{item.board}}
+        {{ item.board }}
       </div>
       <div class="w3-col s9">
-        <b>{{item.title}}</b>
+        <b>{{ item.title }}</b>
         <div class="w3-right w3-text-gray w3-small">
-          {{item.score}}
+          {{ item.score }}
           <fa-icon [icon]="['fas', 'scroll']"></fa-icon>
         </div>
         <br />
-        {{item.description}}
+        {{ item.description }}
       </div>
     </div>
 
@@ -87,44 +142,69 @@
     <div *ngFor="let item of experiences" class="w3-row w3-margin-top">
       <div class="w3-col s3 w3-padding-right-8">
         <fa-icon [icon]="['fas', 'calendar']" class="w3-text-grey"></fa-icon>
-        {{item.duration.from}} - {{item.duration.to}}<br />
-        <fa-icon [icon]="['fas', 'map-marker-alt']" class="w3-text-grey"></fa-icon>
-        {{item.company}}
+        {{ item.duration.from }} - {{ item.duration.to }}<br />
+        <fa-icon
+          [icon]="['fas', 'map-marker-alt']"
+          class="w3-text-grey"
+        ></fa-icon>
+        {{ item.company }}
       </div>
       <div class="w3-col s9">
-        <b>{{item.title}}</b><br />
-        {{item.description}}
+        <b>{{ item.title }}</b
+        ><br />
+        {{ item.description }}
       </div>
     </div>
   </div>
-
 </div>
 
 <div class="w3-dark-gray">
   <div class="w3-content w3-padding-16 w3-padding">
     <h3 class="w3-center">SKILLSETS AND EXPERIENCE</h3>
-    <div *ngFor="let item of skillsets; let i=index">
-      <div class="w3-padding" style="padding-left: 0!important; padding-right: 0!important;">
+    <div *ngFor="let item of skillsets; let i = index">
+      <div
+        class="w3-padding"
+        style="padding-left: 0!important; padding-right: 0!important;"
+      >
         <img [src]="item.icon_path" style="height: 25px;" />&nbsp;
-        {{item.title}}
-        <span class="w3-right w3-hide-large">Experienced {{item.experience.years}} year(s), {{item.experience.months}} month(s)</span>
+        {{ item.title }}
+        <span class="w3-right w3-hide-large"
+          >Experienced {{ item.experience.years }} year(s),
+          {{ item.experience.months }} month(s)</span
+        >
       </div>
       <div class="w3-row">
         <div class="rating w3-col l8">
           <div class="w3-white w3-round-xlarge">
-            <div class="rating-bar w3-container w3-round-xlarge w3-theme-accent" [style.width.%]="item.rating/10*100">
+            <div
+              class="rating-bar w3-container w3-round-xlarge w3-theme-accent"
+              [style.width.%]="(item.rating / 10) * 100"
+            >
               <span class="rating-star w3-hide-large">
-                  {{item.rating}}/10
+                {{ item.rating }}/10
               </span>
-              <span *ngFor="let i of createRange(10)" class="rating-star w3-hide-small w3-hide-medium w3-padding-left-4">
-                <fa-icon [icon]="['fas', 'star']" *ngIf="item.rating > i"></fa-icon>
-                <fa-icon [icon]="['far', 'star']" *ngIf="i >= item.rating"></fa-icon>
+              <span
+                *ngFor="let i of createRange(10)"
+                class="rating-star w3-hide-small w3-hide-medium w3-padding-left-4"
+              >
+                <fa-icon
+                  [icon]="['fas', 'star']"
+                  *ngIf="item.rating > i"
+                ></fa-icon>
+                <fa-icon
+                  [icon]="['far', 'star']"
+                  *ngIf="i >= item.rating"
+                ></fa-icon>
               </span>
             </div>
           </div>
         </div>
-        <div class="w3-col l4 w3-hide-small w3-hide-medium" style="text-align: right;">
-          Experienced {{item.experience.years}} year(s), {{item.experience.months}} month(s)
+        <div
+          class="w3-col l4 w3-hide-small w3-hide-medium"
+          style="text-align: right;"
+        >
+          Experienced {{ item.experience.years }} year(s),
+          {{ item.experience.months }} month(s)
         </div>
       </div>
     </div>
@@ -133,7 +213,9 @@
 
 <div id="my-work-parallax" class="bgimg-2 w3-opacity w3-display-container">
   <div class="w3-display-middle" style="white-space: nowrap;">
-    <span class="w3-center w3-padding-large w3-theme-primary w3-xlarge w3-wide w3-animate-opacity">
+    <span
+      class="w3-center w3-padding-large w3-theme-primary w3-xlarge w3-wide w3-animate-opacity"
+    >
       MY&nbsp;&nbsp;WORK
     </span>
   </div>
@@ -142,7 +224,11 @@
 <div id="my-work" class="w3-content">
   <h3 class="w3-center w3-text-theme-primary">GITHUB ACTIVITY</h3>
   <div class="w3-center">
-    <img src="http://ghchart.rshah.org/3f51b5/sushant-kum" class="w3-image" alt="sushant-kum's Github activity" />
+    <img
+      src="http://ghchart.rshah.org/3f51b5/sushant-kum"
+      class="w3-image"
+      alt="sushant-kum's Github activity"
+    />
   </div>
 </div>
 

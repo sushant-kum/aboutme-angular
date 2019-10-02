@@ -22,14 +22,14 @@ interface Experience {
   description: string;
 }
 interface Skill {
-  icon_path: string,
-  title: string,
-  rating: number,
+  icon_path: string;
+  title: string;
+  rating: number;
   experience: {
     start_date: moment.Moment;
     years?: number;
     months?: number;
-  }
+  };
 }
 
 @Component({
@@ -38,7 +38,6 @@ interface Skill {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
   educations: Education[] = [
     {
       duration: {
@@ -58,7 +57,8 @@ export class HomeComponent implements OnInit {
       title: 'Class XII - AISSCE',
       score: '92.2%',
       board: 'CBSE',
-      description: 'Distinction in all subjects, 87% in Mathematics, 96% in Comp. Sc.'
+      description:
+        'Distinction in all subjects, 87% in Mathematics, 96% in Comp. Sc.'
     },
     {
       duration: {
@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit {
       board: 'VTU',
       description: '94% in Mathematics in 4th semester.'
     }
-  ]
+  ];
   experiences: Experience[] = [
     {
       duration: {
@@ -79,7 +79,8 @@ export class HomeComponent implements OnInit {
       },
       title: 'Software Engineering Intern',
       company: 'Bharat Heavy Electricals Limited',
-      description: 'Website Development and Web Technologies such as HTML/HTML5, CSS, JS, jQuery, Bootstrap.'
+      description:
+        'Website Development and Web Technologies such as HTML/HTML5, CSS, JS, jQuery, Bootstrap.'
     },
     {
       duration: {
@@ -89,32 +90,38 @@ export class HomeComponent implements OnInit {
       title: 'Software Engineering Intern',
       company: 'Bharat Heavy Electricals Limited',
       description: 'ASP.Net and Oracle Database based Web Applications.'
-    }, {
+    },
+    {
       duration: {
         from: 'Jan 2017',
         to: 'Sep 2017'
       },
       title: 'Software Engineering Intern',
       company: 'Plankton Solutions Pvt. Ltd.',
-      description: 'Web Applications using Angular JS (1.x), Angular Material (1.x), etc.'
-    }, {
+      description:
+        'Web Applications using Angular JS (1.x), Angular Material (1.x), etc.'
+    },
+    {
       duration: {
         from: 'Oct 2017',
         to: 'May 2019'
       },
       title: 'Software Engineer (Front End)',
       company: 'Plankton Solutions Pvt. Ltd.',
-      description: 'Web Technologies such as Angular (7.x), Angular Material (2.x), Node JS, etc.'
-    }, {
+      description:
+        'Web Technologies such as Angular (7.x), Angular Material (2.x), Node JS, etc.'
+    },
+    {
       duration: {
         from: 'May 2019',
         to: 'Present'
       },
       title: 'Software Engineer (Full Stack)',
       company: 'Soroco India Pvt. Ltd.',
-      description: 'Web Technologies such as Angular (7.x), Angular Material (2.x), Node JS, etc.'
+      description:
+        'Web Technologies such as Angular (7.x), Angular Material (2.x), Node JS, etc.'
     }
-  ]
+  ];
   skillsets: Skill[] = [
     {
       icon_path: 'assets/images/icons/html5.min.png',
@@ -212,30 +219,35 @@ export class HomeComponent implements OnInit {
         start_date: moment([2016, 5, 1])
       }
     }
-  ]
+  ];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     window.onscroll = () => {
-      let navbar = document.getElementById("top-navbar");
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      const navbar = document.getElementById('top-navbar');
+      if (
+        document.body.scrollTop > 100 ||
+        document.documentElement.scrollTop > 100
+      ) {
         navbar.classList.add('w3-white');
         navbar.classList.add('w3-card');
       } else {
         navbar.classList.remove('w3-white');
         navbar.classList.remove('w3-card');
       }
-    }
+    };
 
     this.calcExperience();
   }
 
   calcExperience(): void {
-    let today = moment();
-    for (let skill of this.skillsets) {
+    const today = moment();
+    for (const skill of this.skillsets) {
       skill.experience.years = today.diff(skill.experience.start_date, 'years');
-      skill.experience.months = today.diff(skill.experience.start_date, 'months') - skill.experience.years * 12;
+      skill.experience.months =
+        today.diff(skill.experience.start_date, 'months') -
+        skill.experience.years * 12;
     }
   }
 
@@ -246,13 +258,16 @@ export class HomeComponent implements OnInit {
   }
 
   scrollTo(id: string): void {
-    $('html,body').animate({
-      scrollTop: $(id).offset().top - 53
-    }, 'slow');
+    $('html,body').animate(
+      {
+        scrollTop: $(id).offset().top - 53
+      },
+      'slow'
+    );
   }
 
   createRange(max: number, min: number = 0): number[] {
-    let arr: number[] = [];
+    const arr: number[] = [];
     for (let i = min; i < max; i++) {
       arr.push(i);
     }
@@ -260,8 +275,9 @@ export class HomeComponent implements OnInit {
   }
 
   stringify(obj: any): string {
-    if (typeof obj == "object")
+    if (typeof obj === 'object') {
       return JSON.stringify(obj);
+    }
     return obj;
   }
 }

@@ -1,38 +1,42 @@
-#about-me-parallax, #about-me, #my-work-parallax, #my-work {
-    font-family: Arial, sans-serif;
-    /* height: 100%; */
-    /* color: #707070;
+#about-me-parallax,
+#about-me,
+#my-work-parallax,
+#my-work {
+  font-family: Arial, sans-serif;
+  /* height: 100%; */
+  /* color: #707070;
     line-height: 1.8; */
 }
 
 #header-logo {
-    height: 53px;
-    cursor: pointer;
+  height: 53px;
+  cursor: pointer;
 }
 
 /* Create a Parallax Effect */
-.bgimg-1, .bgimg-2 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bgimg-1,
+.bgimg-2 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url('/assets/images/bg/about-me-rainy-foggy-min.jpg');
-    min-height: 100vh;
+  background-image: url('/assets/images/bg/about-me-rainy-foggy-min.jpg');
+  min-height: 100vh;
 }
 
 /* Second image (Portfolio) */
 .bgimg-2 {
-    background-image: url("/assets/images/bg/portfolio-rainy-foggy-min.jpg");
-    min-height: 400px;
+  background-image: url('/assets/images/bg/portfolio-rainy-foggy-min.jpg');
+  min-height: 400px;
 }
 
 #profile-img {
-    width: 100%;
-    max-width: 175px;
+  width: 100%;
+  max-width: 175px;
 }
 
 /* .rating .rating-bar {
