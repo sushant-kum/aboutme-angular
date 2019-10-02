@@ -12,6 +12,7 @@
     "build_aot": "ng build --build-optimizer --aot --output-path=./dist/build_aot/",
     "build_prod": "ng build --prod --aot=false --build-optimizer=false --output-path=./dist/build_prod/",
     "build_prod_aot": "ng build --prod --aot --build-optimizer --output-path=./dist/build_prod_aot/",
+    "build_prod_aot:deploy": "npm run build_prod_aot && rm -rfv ./deploy/* && mv ./dist/build_prod_aot/* ./deploy",
     "bundle-report": "webpack-bundle-analyzer dist/stats.json",
     "test": "ng test",
     "lint": "ng lint",
