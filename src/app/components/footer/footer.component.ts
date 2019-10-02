@@ -9,10 +9,8 @@ import * as moment from 'moment';
 export class FooterComponent implements OnInit {
   start_year = 2019;
   current_year = moment().year();
-  
-  constructor() { }
 
-  ngOnInit() {
-  }
+  constructor() {}
 
+  ngOnInit() {}
 }

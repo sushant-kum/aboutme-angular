@@ -7,7 +7,20 @@ import { AppComponent } from './app.component';
 /* Fontawesome Imports */
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUser, faBriefcase, faAddressCard, faMapMarkerAlt, faMobileAlt, faEnvelope, faCalendar, faUniversity, faScroll, faStar, faCircleNotch, faCopyright } from '@fortawesome/free-solid-svg-icons';
+import {
+  faUser,
+  faBriefcase,
+  faAddressCard,
+  faMapMarkerAlt,
+  faMobileAlt,
+  faEnvelope,
+  faCalendar,
+  faUniversity,
+  faScroll,
+  faStar,
+  faCircleNotch,
+  faCopyright
+} from '@fortawesome/free-solid-svg-icons';
 import { faGithub as fabGithub } from '@fortawesome/free-brands-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
@@ -30,20 +43,13 @@ library.add(
 );
 
 /* Angular Material Imports */
-import {
-  MatButtonModule,
-  MatChipsModule
-} from '@angular/material';
+import { MatButtonModule, MatChipsModule } from '@angular/material';
 
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    FooterComponent
-  ],
+  declarations: [AppComponent, HomeComponent, FooterComponent],
   imports: [
     /**Angular Import**/
     BrowserModule,
@@ -60,4 +66,4 @@ import { FooterComponent } from './components/footer/footer.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
