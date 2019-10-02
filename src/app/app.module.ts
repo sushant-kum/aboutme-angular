@@ -51,15 +51,15 @@ import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [AppComponent, HomeComponent, FooterComponent],
   imports: [
-    /**Angular Import**/
+    /* Angular Import */
     BrowserModule,
     AppRoutingModule,
     /****/
-    /**Anular Material Imports**/
+    /* Anular Material Imports */
     MatButtonModule,
     MatChipsModule,
     /****/
-    /**Fontawesome Imports**/
+    /* Fontawesome Imports */
     FontAwesomeModule
     /****/
   ],

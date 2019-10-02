@@ -225,7 +225,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     window.onscroll = () => {
-      let navbar = document.getElementById('top-navbar');
+      const navbar = document.getElementById('top-navbar');
       if (
         document.body.scrollTop > 100 ||
         document.documentElement.scrollTop > 100
@@ -242,8 +242,8 @@ export class HomeComponent implements OnInit {
   }
 
   calcExperience(): void {
-    let today = moment();
-    for (let skill of this.skillsets) {
+    const today = moment();
+    for (const skill of this.skillsets) {
       skill.experience.years = today.diff(skill.experience.start_date, 'years');
       skill.experience.months =
         today.diff(skill.experience.start_date, 'months') -
@@ -267,7 +267,7 @@ export class HomeComponent implements OnInit {
   }
 
   createRange(max: number, min: number = 0): number[] {
-    let arr: number[] = [];
+    const arr: number[] = [];
     for (let i = min; i < max; i++) {
       arr.push(i);
     }
@@ -275,7 +275,9 @@ export class HomeComponent implements OnInit {
   }
 
   stringify(obj: any): string {
-    if (typeof obj == 'object') return JSON.stringify(obj);
+    if (typeof obj === 'object') {
+      return JSON.stringify(obj);
+    }
     return obj;
   }
 }

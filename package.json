@@ -16,7 +16,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "lint:fix": "ng lint liquipack-systems-f-end --fix",
+    "lint:fix": "ng lint aboutme-angular --fix",
     "lint:check": "ng lint",
     "format": "prettier \"src/**/*.{css,html,js,json,md,scss,ts}\"",
     "format:fix": "prettier --write \"src/**/*.{css,html,js,json,md,scss,ts}\"",
