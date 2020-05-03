@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --disableHostCheck --aot",
+    "start": "ng serve --host 0.0.0.0 --disableHostCheck",
     "build": "ng build --output-path=./dist/build/",
     "build_deploy": "npm run --silent build_min && npm run --silent minify_vendor_min && npm run --silent replace_vendor_min",
     "build_min": "echo '***Building App Start***' && ng build --output-path=./dist/build_min/ && echo '***Building App Complete***'",

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
-import * as moment from 'moment';
+import $ from 'jquery';
+import moment from 'moment';
 
 interface Education {
   duration: {
