@@ -17,6 +17,10 @@
     "build:prod": "ng build --prod --output-path=./dist",
     "prebuild:prod:gzip": "npm run build:prod",
     "build:prod:gzip": "gzipper --verbose --gzip-level 9 ./dist",
+    "predeploy:prod": "npm run build:prod:gzip",
+    "deploy:prod": "firebase deploy --only hosting:prod",
+    "predeploy:testbed": "npm run build:prod:gzip",
+    "deploy:testbed": "firebase deploy --only hosting:testbed",
     "test": "ng test",
     "test:CI": "ng test --browsers ChromeHeadless --no-watch --code-coverage",
     "lint": "ng lint",
@@ -25,7 +29,9 @@
     "lint:check": "ng lint",
     "format": "prettier \"src/**/*.{css,html,js,json,md,scss,ts}\"",
     "format:fix": "prettier --write \"src/**/*.{css,html,js,json,md,scss,ts}\"",
-    "format:check": "prettier -c \"src/**/*.{css,html,js,json,md,scss,ts}\""
+    "format:check": "prettier -c \"src/**/*.{css,html,js,json,md,scss,ts}\"",
+    "firebase:target:apply:prod": "firebase target:apply hosting prod aboutme-angular",
+    "firebase:target:apply:testbed": "firebase target:apply hosting testbed testbed-aboutme-angular"
   },
   "private": true,
   "dependencies": {
@@ -61,6 +67,7 @@
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.2.2",
+    "firebase-tools": "^8.2.0",
     "gzipper": "^3.7.0",
     "husky": "^3.1.0",
     "jasmine-core": "~2.99.1",
