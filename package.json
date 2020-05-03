@@ -1,6 +1,6 @@
 {
   "name": "aboutme-angular",
-  "version": "0.0.0",
+  "version": "2.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/sushant-kum/aboutme-angular"
@@ -17,6 +17,7 @@
     "build:prod": "ng build --prod --output-path=./dist",
     "prebuild:prod:gzip": "npm run build:prod",
     "build:prod:gzip": "gzipper --verbose --gzip-level 9 ./dist",
+    "commit": "git-cz",
     "predeploy:prod": "npm run build:prod:gzip",
     "deploy:prod": "firebase deploy --only hosting:prod",
     "predeploy:testbed": "npm run build:prod:gzip",
@@ -67,6 +68,8 @@
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.2.2",
+    "commitizen": "^4.0.5",
+    "cz-conventional-changelog": "^3.1.0",
     "firebase-tools": "^8.2.0",
     "gzipper": "^3.7.0",
     "husky": "^3.1.0",
@@ -90,6 +93,11 @@
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
