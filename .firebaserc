@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "aboutme-angular"
+  },
+  "targets": {
+    "aboutme-angular": {
+      "hosting": {
+        "prod": [
+          "aboutme-angular"
+        ],
+        "testbed": [
+          "testbed-aboutme-angular"
+        ]
+      }
+    }
+  }
+}
