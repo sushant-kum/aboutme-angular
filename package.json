@@ -1,19 +1,24 @@
 {
   "name": "aboutme-angular",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sushant-kum/aboutme-angular"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Sushant Kumar",
+    "email": "sushant.kum96@gmail.com",
+    "url": "https://sushantk.com"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --disableHostCheck",
-    "build": "ng build --output-path=./dist/build/",
-    "build_deploy": "npm run --silent build_min && npm run --silent minify_vendor_min && npm run --silent replace_vendor_min",
-    "build_min": "echo '***Building App Start***' && ng build --output-path=./dist/build_min/ && echo '***Building App Complete***'",
-    "minify_vendor_min": "echo '***Minifying vendor.js Start***' && uglifyjs dist/build_min/vendor.js --screw-ie8 --compress --mangle --output dist/build_min/vendor.min.js --verbose  && echo '***Minifying vendor.js Complete***'",
-    "replace_vendor_min": "echo '***Replacing vendor.js with vendor.min.js Start***' && sed -i s/vendor.js/vendor.min.js/g dist/build_min/index.html  && rm -v dist/build_min/vendor.js && echo '***Replacing vendor.js with vendor.min.js Complete***'",
-    "build_aot": "ng build --build-optimizer --aot --output-path=./dist/build_aot/",
-    "build_prod": "ng build --prod --aot=false --build-optimizer=false --output-path=./dist/build_prod/",
-    "build_prod_aot": "ng build --prod --aot --build-optimizer --output-path=./dist/build_prod_aot/",
-    "bundle-report": "webpack-bundle-analyzer dist/stats.json",
+    "build:prod": "ng build --prod --output-path=./dist",
+    "prebuild:prod:gzip": "npm run build:prod",
+    "build:prod:gzip": "gzipper --verbose --gzip-level 9 ./dist",
     "test": "ng test",
+    "test:CI": "ng test --browsers ChromeHeadless --no-watch --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "lint:fix": "ng lint aboutme-angular --fix",
@@ -56,6 +61,7 @@
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.2.2",
+    "gzipper": "^3.7.0",
     "husky": "^3.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
