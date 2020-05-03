@@ -43,7 +43,8 @@ library.add(
 );
 
 /* Angular Material Imports */
-import { MatButtonModule, MatChipsModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
