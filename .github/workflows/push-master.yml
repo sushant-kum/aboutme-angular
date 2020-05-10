@@ -24,7 +24,6 @@ jobs:
       - name: Bump version and create tag
         run: npm run release
       - name: Push commit and tag
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.PAT }}
-          tags: true
+        run: git push "https://${GITHUB_ACTOR}:${PAT}@github.com/${GITHUB_REPOSITORY}.git" --follow-tags origin master
+        env:
+          PAT: ${{ secrets.PAT }}
