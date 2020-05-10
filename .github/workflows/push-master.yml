@@ -24,8 +24,45 @@ jobs:
       - name: Bump version and create tag
         run: npm run release
       - name: Push commit and tag
-        run: |
-          git remote set-url origin "https://${GITHUB_ACTOR}:${PAT}@github.com/${GITHUB_REPOSITORY}.git"
-          git push --follow-tags origin master
+        uses: ad-m/github-push-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tags: true
+
+  build:
+    name: Build
+    needs: [create_tag]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build:prod:gzip
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+  deploy:
+    name: Deploy to firebase
+    needs: [create_tag, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+      - name: Install firebase-tools
+        run: npm i -g firebase-tools
+      - name: Get version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1
+      - name: Deploy to Firebase
+        run: npm run deploy:prod -- --version "v${{steps.package-version.outputs.current-version}}" --token "$FIREBASE_TOKEN"
         env:
-          PAT: ${{ secrets.PAT }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
