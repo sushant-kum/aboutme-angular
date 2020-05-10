@@ -6,34 +6,8 @@ on:
       - master
 
 jobs:
-  inspection_and_tests__non_release__master:
-    name: Inspection and Tests
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        node: ['10', '12']
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-      - name: Install npm dependencies
-        run: npm install
-      - name: Run format check with prettier
-        run: npm run format:check
-      - name: Run lint check
-        run: npm run lint:check
-      - name: Run unit tests
-        run: npm run test:CI
-        continue-on-error: true
-      - name: Run build to check that it succeeds
-        run: npm run build:prod:gzip
-
   create_tag:
     name: Bump version and create tag
-    needs: [inspection_and_tests__non_release__master]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -52,5 +26,5 @@ jobs:
       - name: Push commit and tag
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT }}
           tags: true
