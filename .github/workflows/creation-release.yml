@@ -1,0 +1,42 @@
+name: '[CI] On Release Creation'
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build:prod:gzip
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+  deploy:
+    name: Deploy
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+      - name: Install firebase-tools
+        run: npm i -g firebase-tools
+      - name: Get version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+      - name: Deploy to Firebase
+        run: npm run deploy:prod -- --version "v${{ steps.package-version.outputs.current-version}}" --token "$FIREBASE_TOKEN"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
