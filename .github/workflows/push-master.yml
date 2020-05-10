@@ -24,6 +24,6 @@ jobs:
       - name: Bump version and create tag
         run: npm run release
       - name: Push commit and tag
-        run: git push "https://${GITHUB_ACTOR}:${PAT}@github.com/${GITHUB_REPOSITORY}.git" --follow-tags master
+        run: git push --follow-tags "https://${GITHUB_ACTOR}:${PAT}@github.com/${GITHUB_REPOSITORY}.git" master
         env:
           PAT: ${{ secrets.PAT }}
