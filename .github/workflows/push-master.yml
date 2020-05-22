@@ -59,4 +59,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Deploy to Firebase
-        run: npm run deploy:prod -- --message $`cat version/version.txt` --token ${{ secrets.FIREBASE_TOKEN }}
+        shell: bash
+        run: |
+          npm run deploy:prod -- --message $`cat version/version.txt` --token ${{ secrets.FIREBASE_TOKEN }}
