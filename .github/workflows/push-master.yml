@@ -24,10 +24,7 @@ jobs:
       - name: Bump version and create tag
         run: npm run release
       - name: Push commit and tag
-        uses: ad-m/github-push-action@v0.5.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tags: true
+        run: git push --follow-tags origin master
 
   build:
     name: Build
