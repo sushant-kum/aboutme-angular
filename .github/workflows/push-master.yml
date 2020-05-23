@@ -26,30 +26,9 @@ jobs:
       - name: Push commit and tag
         run: git push --follow-tags origin master
 
-  build:
-    name: Build
+  build_deploy:
+    name: Build and Deploy
     needs: [create_tag]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-      - name: Setup Node.js 12
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      - name: Install Dependencies
-        run: npm install
-      - name: Build
-        run: npm run build:prod:gzip
-      - name: Archive Production Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist
-
-  deploy:
-    name: Deploy to firebase
-    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -62,12 +41,8 @@ jobs:
           node-version: '12'
       - name: Install Dependencies
         run: npm install
-      - name: Download Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: dist
       - name: Get version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.0.0
-      - name: Deploy to Firebase
+      - name: Build and Deploy to Firebase
         run: npm run deploy:prod -- --message v${{ steps.package-version.outputs.current-version }} --token ${{ secrets.FIREBASE_TOKEN }}
